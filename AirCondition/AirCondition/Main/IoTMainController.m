@@ -111,7 +111,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_menu"] style:UIBarButtonItemStylePlain target:[SlideNavigationController sharedInstance] action:@selector(toggleLeftMenu)];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_start"] style:UIBarButtonItemStylePlain target:self action:@selector(onPower)];
     
-    //圈圈外面预留15px
+    //圈圈控件属性设置
     self.sliderCircular.transform = CGAffineTransformMakeRotation(M_PI);
     self.sliderCircular.sliderStyle = UICircularSliderStyleCircle;
     self.sliderCircular.minimumValue = 16;
@@ -413,7 +413,12 @@
 
 #pragma mark - Actions
 - (void)onDisconnected {
-    if(!self.device.isConnected)
+    //断线且页面在控制页面时才弹框
+    UIViewController *currentController = self.navigationController.viewControllers.lastObject;
+    
+    if(!self.device.isConnected &&
+       ([currentController isKindOfClass:[IoTMainController class]] ||
+        [currentController isKindOfClass:[IoTShutdownStatus class]]))
     {
         [IoTAppDelegate.hud hide:YES];
         [_alertView hide:YES];
@@ -733,7 +738,9 @@
         return YES;
     }
     
-    //当前日期
+    /**
+     * 添加当前故障
+     */
     NSDate *date = [NSDate date];
     if(alerts.count > 0)
     {

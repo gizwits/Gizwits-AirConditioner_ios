@@ -184,23 +184,29 @@
         //标记为marked
         cell.accessoryType = mainCtrl.device == device ? UITableViewCellAccessoryCheckmark : UITableViewCellAccessoryNone;
     }
+    
+    //账号管理
     if(indexPath.row == deviceCount+1)
     {
         cell.imageView.image = [UIImage imageNamed:@"menu_88-02"];
         cell.textLabel.text = subItems[indexPath.row-deviceCount];
     }
+    
+    //帮助
     if(indexPath.row == deviceCount+2)
     {
         cell.imageView.image = [UIImage imageNamed:@"menu_88-03"];
         cell.textLabel.text = subItems[indexPath.row-deviceCount];
     }
+    
+    //关于
     if(indexPath.row == deviceCount+3)
     {
         cell.imageView.image = [UIImage imageNamed:@"menu_88-04"];
         cell.textLabel.text = subItems[indexPath.row-deviceCount];
     }
     
-    //在这里，处理详细的设备管理
+    //在这里，加'>'符号
     if(indexPath.row > deviceCount)
     {
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
@@ -276,13 +282,10 @@
 {
     device.delegate = nil;
     
+    //登录成功
     if(result == 0)
     {
         [self switchToDevice:device];
-    }
-    else
-    {
-        //登录失败
     }
     
     //重置状态
