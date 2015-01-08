@@ -48,6 +48,12 @@
  */
 - (void)IoTProcessModelDidControlDevice:(XPGWifiDevice *)device;
 
+/**
+ * @brief 注销事件
+ * @param result 完成的结果
+ */
+- (void)IoTProcessModelDidUserLogout:(NSInteger)result;
+
 @end
 
 @interface IoTProcessModel : NSObject<XPGWifiSDKDelegate>

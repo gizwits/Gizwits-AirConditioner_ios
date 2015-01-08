@@ -110,6 +110,22 @@ NSString * const IOT_PRODUCT       = @"e3cf7332b7834a03a92d9e14a3f6d352";
     }
 }
 
+- (void)IoTProcessModelDidUserLogout:(NSInteger)result
+{
+    [self.hud hide:YES];
+    
+    if(result == 0)
+    {
+        if(self.navCtrl.viewControllers.count > 1)
+            [self.navCtrl popToRootViewControllerAnimated:YES];
+    }
+    else
+    {
+        NSString *message = [NSString stringWithFormat:@"注销失败，错误码：%@", @(result)];
+        [[[IoTAlertView alloc] initWithMessage:message delegate:nil titleOK:nil] show:YES];
+    }
+}
+
 #pragma mark - Properties
 - (MBProgressHUD *)hud
 {

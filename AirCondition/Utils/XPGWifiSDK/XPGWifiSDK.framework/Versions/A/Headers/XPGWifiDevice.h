@@ -13,8 +13,6 @@
 #define __INTERNAL_SUPPORT_SWITCH_SERVICE__
 //#define __INTERNAL_TESTING_API__
 
-#define __DEVICE_DISABLED_API__
-
 @class XPGWifiDevice;
 
 extern NSString *XPGWifiDeviceLogLevelKey;
@@ -130,6 +128,7 @@ extern NSString *XPGWifiDeviceHardwareProductKey;
 @property (nonatomic, assign, readonly) BOOL isConnected;       //是否连接
 @property (nonatomic, assign, readonly) BOOL isLAN;             //是否是小循环设备
 @property (nonatomic, assign, readonly) BOOL isOnline;          //云端判断设备是否在线
+@property (nonatomic, assign, readonly) BOOL isDisabled;        //云端判断设备是否已注销
 
 /**
  * @brief 获取硬件信息。只有设备登录后才能获取到
