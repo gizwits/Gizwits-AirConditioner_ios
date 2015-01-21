@@ -25,7 +25,6 @@
 #import "IoTChangePassword.h"
 #import <IoTProcessModel/IoTProcessModel.h>
 #import "IoTAlertView.h"
-#import "IoTMainController.h"
 
 @interface IoTChangePassword () <XPGWifiSDKDelegate>
 
@@ -58,17 +57,6 @@
 {
     [super viewDidDisappear:animated];
     [XPGWifiSDK sharedInstance].delegate = nil;
-}
-
-- (IoTMainController *)mainCtrl
-{
-    SlideNavigationController *navCtrl = [SlideNavigationController sharedInstance];
-    for(int i=(int)(navCtrl.viewControllers.count-1); i>0; i--)
-    {
-        if([navCtrl.viewControllers[i] isKindOfClass:[IoTMainController class]])
-            return navCtrl.viewControllers[i];
-    }
-    return nil;
 }
 
 - (IBAction)onConfirm:(id)sender {

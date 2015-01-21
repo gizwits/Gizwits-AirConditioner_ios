@@ -64,6 +64,9 @@ NSString * const IOT_PRODUCT       = @"e3cf7332b7834a03a92d9e14a3f6d352";
     self.navCtrl.leftMenu = [[IoTMainMenu alloc] init];//主菜单部分
     self.navCtrl.navigationBar.tintColor = [UIColor whiteColor];
     self.navCtrl.navigationBar.barTintColor = [UIColor colorWithRed:0.1484375 green:0.49609375 blue:0.90234375 alpha:1.00];//导航颜色
+    
+    model.tintColor = self.navCtrl.navigationBar.tintColor;
+    model.barTintColor = self.navCtrl.navigationBar.barTintColor;
     if(model.isRegisteredUser)
         [self.navCtrl pushViewController:model.deviceListController animated:NO];
     

@@ -54,6 +54,18 @@
  */
 - (void)IoTProcessModelDidUserLogout:(NSInteger)result;
 
+/**
+ * @brief 获取列表自定义图片
+ */
+- (UIImage *)IoTProcessModelGetDeviceImage:(XPGWifiDevice *)device section:(NSInteger)section;
+
+/**
+ * @brief 获取列表自定义显示名
+ * @note SDK 默认的做法为 device.remark
+ * @note 如果 device.remark 为空则取 device.productName
+ */
+- (NSString *)IoTProcessModelGetDeviceCustomText:(XPGWifiDevice *)device;
+
 @end
 
 @interface IoTProcessModel : NSObject<XPGWifiSDKDelegate>
@@ -83,6 +95,12 @@
  * @brief 是否注册
  */
 @property (nonatomic, assign, readonly) BOOL isRegisteredUser;
+
+/**
+ * @brief 导航
+ */
+@property (nonatomic, strong) UIColor *barTintColor;
+@property (nonatomic, strong) UIColor *tintColor;
 
 /**
  * @brief 当前已登录的用户名

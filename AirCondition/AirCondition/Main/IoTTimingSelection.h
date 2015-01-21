@@ -31,7 +31,7 @@
 
 /**
  * @brief 选中后的事件
- * @param value 0-11 分别对应 2-24，12 关闭
+ * @param value 0-34 分别对应 1-24，25 关闭
  */
 - (void)IoTTimingSelectionDidConfirm:(IoTTimingSelection *)selection withValue:(NSInteger)value;
 
