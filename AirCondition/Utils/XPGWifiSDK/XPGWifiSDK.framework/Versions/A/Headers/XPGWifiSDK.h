@@ -80,7 +80,7 @@ typedef enum
 {
     XPGWifiSDKSoftAPMode = 1,
     XPGWifiSDKAirLinkMode = 2,
-}ConfigureMode;
+}XPGConfigureMode;
 
 typedef enum _tagXPGCloudService
 {
@@ -269,6 +269,11 @@ typedef enum _tagXPGCloudService
  */
 + (void)registerSSIDs:(NSString *)ssidPrefix, ... NS_REQUIRES_NIL_TERMINATION;
 
+#ifdef SWIFT
++ (void)registerSSID:(NSString *)ssid;
++ (void)clearSSIDs;
+#endif
+
 #ifdef __INTERNAL_SUPPORT_SWITCH_SERVICE__
 /**
  * @brief 设置服务地址切换，用于切换云端的调试环境和发布环境
@@ -322,7 +327,7 @@ typedef enum _tagXPGCloudService
  * @param timeout: 配置的超时时间 SDK默认执行的最小超时时间为30秒
  * @see 对应的回调接口：[XPGWifiSDK XPGWifiSDK:didSetDeviceWifi:result:]
  */
-- (void)setDeviceWifi:(NSString*)ssid key:(NSString*)key mode:(ConfigureMode)mode timeout:(int)timeout;
+- (void)setDeviceWifi:(NSString*)ssid key:(NSString*)key mode:(XPGConfigureMode)mode timeout:(int)timeout;
 
 /**
  * @brief 获取设备Wifi在软AP模式下搜索到的SSID列表，SSID列表通过异步回调方式返回
@@ -482,5 +487,12 @@ typedef enum _tagXPGCloudService
  * @see 对应的回调接口：[XPGWifiSDK XPGWifiSDK:didDiscovered:result:]
  */
 - (void)getBoundDevicesWithUid:(NSString *)uid token:(NSString *)token specialProductKeys:(NSString *)specialProductKey, ... NS_REQUIRES_NIL_TERMINATION;
+
+#ifdef SWIFT
+- (void)getBoundDevice:(NSString *)uid token:(NSString *)token;
+- (void)EnableProductFilter:(BOOL)isEnable;
+- (void)RegisterProductKey:(NSString *)productKey;
+- (void)ClearProductKey;
+#endif
 
 @end
