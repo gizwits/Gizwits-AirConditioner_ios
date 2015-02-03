@@ -103,7 +103,7 @@
 @property (nonatomic, strong) UIColor *tintColor;
 
 /**
- * @brief 当前已登录的用户名
+ * @brief 当前已登录的用户名、uid、token
  */
 @property (nonatomic, strong, readonly) NSString *currentUser;
 @property (nonatomic, strong, readonly) NSString *currentUid;
