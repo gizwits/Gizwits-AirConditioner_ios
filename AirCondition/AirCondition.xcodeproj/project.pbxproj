@@ -372,7 +372,8 @@
 				EE76906F1A43EEF700B682DD /* main */,
 				EE76909F1A43EEF700B682DD /* timer */,
 			);
-			path = Image;
+			name = Image;
+			path = ../Image;
 			sourceTree = "<group>";
 		};
 		D8B3C2A21A315E9C00CCC33A /* Main */ = {
@@ -399,6 +400,7 @@
 		EE16C9941A1EF20F0009FB4E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D864D5B51A36D13000D05179 /* Image */,
 				D864D65F1A36FFC300D05179 /* data.json */,
 			);
 			path = Resources;
@@ -436,7 +438,6 @@
 		EE33B4CB1A1C8ED00003854A /* AirCondition */ = {
 			isa = PBXGroup;
 			children = (
-				D864D5B51A36D13000D05179 /* Image */,
 				EE16C9941A1EF20F0009FB4E /* Resources */,
 				EEC35B141A1EEC2400B28C03 /* Utils */,
 				D8B3C2A21A315E9C00CCC33A /* Main */,
