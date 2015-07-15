@@ -1,4 +1,4 @@
-airconditioner-ios
+Gizwits-AirConditioner_ios
 ==================
 Gizwits Air-conditioner Demo App
 
