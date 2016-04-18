@@ -28,6 +28,7 @@
 #import "IoTHelp.h"
 #import "IoTAbout.h"
 #import "IoTMainController.h"
+#import "IoTVersion.h"
 
 #import "SlideNavigationController.h"
 
@@ -46,7 +47,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    subItems = @[@"设备管理", @"账号管理", @"帮助", @"关于"];
+    subItems = @[@"设备管理", @"账号管理", @"帮助", @"关于", @"版本信息"];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -205,6 +206,14 @@
         cell.imageView.image = [UIImage imageNamed:@"menu_88-04"];
         cell.textLabel.text = subItems[indexPath.row-deviceCount];
     }
+    //版本信息
+    if(indexPath.row == deviceCount+4)
+    {
+        cell.imageView.image = [UIImage imageNamed:@"menu_88-04"];
+        cell.textLabel.text = subItems[indexPath.row-deviceCount];
+        cell.textLabel.textColor = [UIColor blackColor];
+    }
+
     
     //在这里，加'>'符号
     if(indexPath.row > deviceCount)
@@ -240,10 +249,14 @@
     }
     if(indexPath.row > 0 && indexPath.row < deviceCount+1)
     {
+        XPGWifiDevice *device = arrayList[indexPath.row-1];
+        if (device.isOnline == NO) {
+            return;
+        }
+        
         //切换设备，锁定状态，不允许用户随便乱点
         [self setNetworkAvailable:YES];
         
-        XPGWifiDevice *device = arrayList[indexPath.row-1];
         device.delegate = self;
         
         //如果已经连接则直接设置
@@ -275,6 +288,13 @@
         IoTAbout *aboutCtrl = [[IoTAbout alloc] init];
         [self pushToViewController:aboutCtrl];
     }
+    if(indexPath.row == deviceCount+4)
+    {
+        //版本信息
+        IoTVersion *versionCtrl = [[IoTVersion alloc] init];
+        [self pushToViewController:versionCtrl];
+    }
+
 }
 
 #pragma mark - XPGWifiDeviceDelegate

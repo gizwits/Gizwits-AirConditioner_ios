@@ -60,7 +60,7 @@
 {
     [super viewWillAppear:animated];
     [self onUpdateTiming];
-    [self.mainCtrl addObserver:self forKeyPath:@"onTiming" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.mainCtrl addObserver:self forKeyPath:@"onTiming" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -73,7 +73,7 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [self.mainCtrl removeObserver:self forKeyPath:@"onTiming"];
+//    [self.mainCtrl removeObserver:self forKeyPath:@"onTiming"];
     [_timingSelection hide:YES];
 }
 
