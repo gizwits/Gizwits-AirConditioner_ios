@@ -45,7 +45,7 @@ NSString * const IOT_PRODUCT       = @"e3cf7332b7834a03a92d9e14a3f6d352";
     
     //初始化
     NSData *data = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"]];
-    model = [IoTProcessModel startWithAppID:IOT_APPKEY product:IOT_PRODUCT productJson:data];
+    model = [IoTProcessModel startWithAppID:IOT_APPKEY appSecret:@"55f2b5c59d27420e808fe878eaa2026f" product:IOT_PRODUCT productJson:data];
     model.delegate = self;
     
     //用户未注册-->登录

@@ -159,7 +159,7 @@
     [super viewWillAppear:animated];
     [self initDevice];
     
-    [self.view addObserver:self forKeyPath:@"userInteractionEnabled" options:NSKeyValueObservingOptionNew context:nil];
+//    [self.view addObserver:self forKeyPath:@"userInteractionEnabled" options:NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -193,7 +193,7 @@
 {
     [super viewWillDisappear:animated];
     
-    [self.view removeObserver:self forKeyPath:@"userInteractionEnabled"];
+//    [self.view removeObserver:self forKeyPath:@"userInteractionEnabled"];
 
     if([self.navigationController.viewControllers indexOfObject:self] > self.navigationController.viewControllers.count)
         self.device.delegate = nil;
@@ -413,6 +413,8 @@
 
 #pragma mark - Actions
 - (void)onDisconnected {
+    self.device.delegate = nil;
+    
     //断线且页面在控制页面时才弹框
     UIViewController *currentController = self.navigationController.viewControllers.lastObject;
     
@@ -424,16 +426,16 @@
         [_alertView hide:YES];
         [[[IoTAlertView alloc] initWithMessage:@"连接已断开" delegate:nil titleOK:@"确定"] show:YES];
     }
-    
+    [self.navigationController popViewControllerAnimated:YES];
     //退出到列表
-    for(int i=(int)(self.navigationController.viewControllers.count-1); i>0; i--)
-    {
-        UIViewController *controller = self.navigationController.viewControllers[i];
-        if([controller isKindOfClass:[IoTDeviceList class]])
-        {
-            [self.navigationController popToViewController:controller animated:YES];
-        }
-    }
+//    for(int i=(int)(self.navigationController.viewControllers.count-1); i>0; i--)
+//    {
+//        UIViewController *controller = self.navigationController.viewControllers[i];
+//        if([controller isKindOfClass:[IoTDeviceList class]])
+//        {
+//            [self.navigationController popToViewController:controller animated:YES];
+//        }
+//    }
 }
 
 - (void)onUpdateAlarm {
@@ -638,7 +640,7 @@
 
 - (void)setDevice:(XPGWifiDevice *)device
 {
-    _device.delegate = nil;
+//    _device.delegate = nil;
     _device = device;
     [self initDevice];
 }
@@ -660,10 +662,16 @@
     [self onDisconnected];
 }
 
-- (BOOL)XPGWifiDevice:(XPGWifiDevice *)device didReceiveData:(NSDictionary *)data result:(int)result
+- (void)XPGWifiDevice:(XPGWifiDevice *)device didDeviceIsOnline:(BOOL)isOnline {
+    NSLog(@"@@@@@@@@@@@@@@@@@@@");
+    NSLog(@"@@@@@@@@@@@@@@@@@@@");
+    NSLog(@"@@@@@@@@@@@@@@@@@@@");
+}
+
+- (void)XPGWifiDevice:(XPGWifiDevice *)device didReceiveData:(NSDictionary *)data result:(int)result
 {
     if(![device.did isEqualToString:self.device.did])
-        return YES;
+        return;
     
     [IoTAppDelegate.hud hide:YES];
     
@@ -722,7 +730,7 @@
      * 报警和错误
      */
     if([self.navigationController.viewControllers lastObject] != self)
-        return YES;
+        return;
     
     NSArray *alerts = [data valueForKey:@"alerts"];
     NSArray *faults = [data valueForKey:@"faults"];
@@ -735,7 +743,7 @@
     if(alerts.count == 0 && faults.count == 0)
     {
         [self onUpdateAlarm];
-        return YES;
+        return;
     }
     
     /**
@@ -748,7 +756,9 @@
         {
             for(NSString *name in dict.allKeys)
             {
-                [[IoTRecord sharedInstance] addRecord:date information:name];
+                if ([[dict valueForKey:name] intValue]) {
+                    [[IoTRecord sharedInstance] addRecord:date information:name];
+                }
             }
         }
     }
@@ -759,13 +769,15 @@
         {
             for(NSString *name in dict.allKeys)
             {
-                [[IoTRecord sharedInstance] addRecord:date information:name];
+                if ([[dict valueForKey:name] intValue]) {
+                    [[IoTRecord sharedInstance] addRecord:date information:name];
+                }
             }
         }
     }
     [self onUpdateAlarm];
     
-    return YES;
+    return;
 }
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex

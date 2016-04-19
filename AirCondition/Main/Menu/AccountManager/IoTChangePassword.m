@@ -40,6 +40,9 @@
     // Do any additional setup after loading the view from its nib.
     self.navigationItem.title = @"修改密码";
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"return_icon"] style:UIBarButtonItemStylePlain target:self action:@selector(onBack)];
+    
+    self.textOldPass.keyboardType = UIKeyboardTypeASCIICapable;
+    self.textNewPass.keyboardType = UIKeyboardTypeASCIICapable;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -66,11 +69,20 @@
         return;
     }
     
+    if(self.textOldPass.text.length < 6 || self.textOldPass.text.length > 16)
+    {
+        [[[IoTAlertView alloc] initWithMessage:@"旧密码长度必须在 6-16 之间" delegate:nil titleOK:@"确定"] show:YES];
+        return;
+    }
+    
     if(![[IoTProcessModel sharedModel] validatePassword:self.textNewPass.text])
     {
         [[[IoTAlertView alloc] initWithMessage:@"新密码格式不正确，请重新输入" delegate:nil titleOK:@"确定"] show:YES];
         return;
     }
+    
+    [self.textOldPass resignFirstResponder];
+    [self.textNewPass resignFirstResponder];
     
     MBProgressHUD *hud = IoTAppDelegate.hud;
     hud.labelText = @"修改密码中，请稍候...";
@@ -90,6 +102,11 @@
     if([error intValue] == 0)
     {
         [[[IoTAlertView alloc] initWithMessage:@"修改成功" delegate:nil titleOK:@"确定"] show:YES];
+    }
+    else if([error intValue] == -27)
+    {
+        NSLog(@"code=%@ message=%@", error, errorMessage);
+        [[[IoTAlertView alloc] initWithMessage:@"网络连接已断开" delegate:nil titleOK:@"确定"] show:YES];
     }
     else
     {

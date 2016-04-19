@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A12A7961C75A55E001C60A2 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A12A7951C75A55E001C60A2 /* CoreTelephony.framework */; };
+		1A12A7A11C75A9C0001C60A2 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1A12A7A01C75A9C0001C60A2 /* Icon@2x.png */; };
+		1AEEE8351C75A3C00088B6FC /* IoTVersion.m in Sources */ = {isa = PBXBuildFile; fileRef = 1AEEE8331C75A3C00088B6FC /* IoTVersion.m */; };
+		1AEEE8361C75A3C00088B6FC /* IoTVersion.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1AEEE8341C75A3C00088B6FC /* IoTVersion.xib */; };
 		D864D6601A36FFC300D05179 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = D864D65F1A36FFC300D05179 /* data.json */; };
 		EE13C0A51A27094B0033E8E2 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE13C0A41A27094B0033E8E2 /* AVFoundation.framework */; };
 		EE13C0A71A2709560033E8E2 /* libiconv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = EE13C0A61A2709560033E8E2 /* libiconv.dylib */; };
@@ -112,6 +116,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A12A7951C75A55E001C60A2 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		1A12A7A01C75A9C0001C60A2 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		1AEEE8321C75A3C00088B6FC /* IoTVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IoTVersion.h; sourceTree = "<group>"; };
+		1AEEE8331C75A3C00088B6FC /* IoTVersion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IoTVersion.m; sourceTree = "<group>"; };
+		1AEEE8341C75A3C00088B6FC /* IoTVersion.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IoTVersion.xib; sourceTree = "<group>"; };
 		D864D65F1A36FFC300D05179 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		EE13C0A41A27094B0033E8E2 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EE13C0A61A2709560033E8E2 /* libiconv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.dylib; path = usr/lib/libiconv.dylib; sourceTree = SDKROOT; };
@@ -349,6 +358,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A12A7961C75A55E001C60A2 /* CoreTelephony.framework in Frameworks */,
 				EE76914C1A43F14900B682DD /* XPGWifiSDK.framework in Frameworks */,
 				EE5D353A1A305293001C1E09 /* libssl.a in Frameworks */,
 				EE13C0A91A2709650033E8E2 /* CoreMedia.framework in Frameworks */,
@@ -367,6 +377,7 @@
 		D864D5B51A36D13000D05179 /* Image */ = {
 			isa = PBXGroup;
 			children = (
+				1A12A7A01C75A9C0001C60A2 /* Icon@2x.png */,
 				EE7690631A43EEF700B682DD /* alert */,
 				EE7690661A43EEF700B682DD /* common */,
 				EE76906F1A43EEF700B682DD /* main */,
@@ -421,6 +432,7 @@
 		EE33B4C01A1C8ED00003854A = {
 			isa = PBXGroup;
 			children = (
+				1A12A7951C75A55E001C60A2 /* CoreTelephony.framework */,
 				EE33B4CB1A1C8ED00003854A /* AirCondition */,
 				EE33B4E51A1C8ED00003854A /* AirConditionTests */,
 				EE33B4CA1A1C8ED00003854A /* Products */,
@@ -586,6 +598,9 @@
 		EE6BF5BD1A3EDD4E00363385 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				1AEEE8321C75A3C00088B6FC /* IoTVersion.h */,
+				1AEEE8331C75A3C00088B6FC /* IoTVersion.m */,
+				1AEEE8341C75A3C00088B6FC /* IoTVersion.xib */,
 				EE7F41C61A3F29CF00F68022 /* AccountManager */,
 				EE7F41C71A3F29CF00F68022 /* DeviceManager */,
 				EE7F41CE1A3F29F900F68022 /* IoTAbout.h */,
@@ -982,7 +997,7 @@
 				TargetAttributes = {
 					EE33B4C81A1C8ED00003854A = {
 						CreatedOnToolsVersion = 6.1;
-						DevelopmentTeam = 4F4JWNAD79;
+						DevelopmentTeam = PQ4M5DLLZT;
 					};
 				};
 			};
@@ -1011,6 +1026,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE7690C21A43EEF700B682DD /* icon_model_04.png in Resources */,
+				1A12A7A11C75A9C0001C60A2 /* Icon@2x.png in Resources */,
 				EE7690CE1A43EEF700B682DD /* menu_88@2x.png in Resources */,
 				EE7693541A44019400B682DD /* menu-button@2x.png in Resources */,
 				EE7690CB1A43EEF700B682DD /* menu_88-03@2x.png in Resources */,
@@ -1073,6 +1089,7 @@
 				EE7690C71A43EEF700B682DD /* icon_start@2x.png in Resources */,
 				EE7690B61A43EEF700B682DD /* icon_left@2x.png in Resources */,
 				EE7690D11A43EEF700B682DD /* start@2x.png in Resources */,
+				1AEEE8361C75A3C00088B6FC /* IoTVersion.xib in Resources */,
 				EE7693531A44019400B682DD /* menu-button.png in Resources */,
 				EE7690C51A43EEF700B682DD /* icon_shake-18@2x.png in Resources */,
 				EE7690C81A43EEF700B682DD /* icon_time@2x.png in Resources */,
@@ -1099,6 +1116,7 @@
 				EE85B8CE1A431A3100B2833F /* IoTRecord.m in Sources */,
 				EE33B4D21A1C8ED00003854A /* AppDelegate.m in Sources */,
 				EE7F41E51A3F2B6400F68022 /* IoTAccountManager.m in Sources */,
+				1AEEE8351C75A3C00088B6FC /* IoTVersion.m in Sources */,
 				EE33B4CF1A1C8ED00003854A /* main.m in Sources */,
 				EE27693E1A416C6700E0E89F /* IoTFaultList.m in Sources */,
 				EE7693501A44019400B682DD /* SlideNavigationContorllerAnimatorScaleAndFade.m in Sources */,
@@ -1214,6 +1232,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Chao zhang (P7LZM8BSXM)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IoTProcessModel/IoTProcessModel/Utils/XPGWifiSDK",
@@ -1234,7 +1254,9 @@
 					"$(PROJECT_DIR)/Utils/IoTProcessModel",
 					"$(PROJECT_DIR)/Utils/ZBarSDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xtremeprog.AirCondition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a687add-8837-418d-a3b0-537566ea164c";
 			};
 			name = Debug;
 		};
@@ -1243,6 +1265,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chao zhang (PQ4M5DLLZT)";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/IoTProcessModel/IoTProcessModel/Utils/XPGWifiSDK",
@@ -1263,7 +1287,9 @@
 					"$(PROJECT_DIR)/Utils/IoTProcessModel",
 					"$(PROJECT_DIR)/Utils/ZBarSDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.xtremeprog.AirCondition;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9a687add-8837-418d-a3b0-537566ea164c";
 			};
 			name = Release;
 		};
