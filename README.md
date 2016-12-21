@@ -2,11 +2,11 @@
 =============
 
     此公版开源App已不再维护，机智云推出了物联开源框架，并提供了其他开源案例供参考。机智云公版开源App项目地址：
-
-    机智云物联开源框架iOS项目 https://github.com/gizwits/GizOpenSource_AppKit_iOS
-    机智云智能灯2代iOS项目 https://github.com/gizwits/Gizwits-SmartBuld_iOS
-    机智云Gokit的iOS项目 https://github.com/gizwits/gokit-ios
-    机智云Gokit的APICloud项目 https://github.com/gizwits/gokit_demo_in_apicloud
+    
+	机智云物联开源框架iOS项目 https://github.com/gizwits/GizOpenSource_AppKit_iOS
+	机智云智能灯2代iOS项目 https://github.com/gizwits/Gizwits-SmartBuld_iOS
+	机智云Gokit的iOS项目 https://github.com/gizwits/gokit-ios
+	机智云Gokit的APICloud项目 https://github.com/gizwits/gokit_demo_in_apicloud
     
     我们在机智云社区、QQ群提供技术支持，意见反馈渠道。机智云社区网址：http://club.gizwits.com/forum.php
 
@@ -47,7 +47,6 @@ Gizwits Air-conditioner Demo App
 项目依赖和安装
 
 	下载代码后可直接编译运行。如果需要更新 XPGWifiSDK，请自行替换官方网站的最新版本。
-
 
 
 硬件依赖
